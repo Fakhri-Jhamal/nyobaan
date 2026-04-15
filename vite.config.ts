@@ -28,16 +28,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'dist', // Keep default dist output aligned with vercel.json
-    chunkSizeWarningLimit: 1500, // Increase warning limit threshold
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router'],
-          markdown: ['react-markdown', 'remark-gfm'],
-          lucide: ['lucide-react']
-        }
-      }
-    }
+    outDir: 'dist',
+    chunkSizeWarningLimit: 1500, // Increase warning limit threshold safely
   }
 })
