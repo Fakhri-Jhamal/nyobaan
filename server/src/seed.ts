@@ -9,6 +9,7 @@ import Report from './models/Report';
 
 // Assume you copy the data arrays from mockData.ts here or import them if you configure ts-node to resolve it
 // For this seed to run independently, we'll redefine the mock arrays here to keep it self-contained
+// @ts-ignore
 import { users, communities, posts, comments, reports } from '../../src/app/data/mockData';
 
 dotenv.config();
@@ -62,7 +63,7 @@ const seedDB = async () => {
       const _id = new mongoose.Types.ObjectId();
       idMap.set(c.id, _id);
 
-      const moderators = c.moderators.map(m => idMap.get(m)).filter(Boolean);
+      const moderators = c.moderators.map((m: any) => idMap.get(m)).filter(Boolean);
 
       const newCommunity = new Community({
         _id,
@@ -83,7 +84,7 @@ const seedDB = async () => {
     // Link users to communities
     for (const u of users) {
       if (u.joinedCommunities.length > 0) {
-        const joinedDocs = u.joinedCommunities.map(cId => idMap.get(cId)).filter(Boolean);
+        const joinedDocs = u.joinedCommunities.map((cId: any) => idMap.get(cId)).filter(Boolean);
         await User.findByIdAndUpdate(idMap.get(u.id), { joinedCommunities: joinedDocs });
       }
     }
