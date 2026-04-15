@@ -47,6 +47,7 @@ export interface Post {
   isRemoved: boolean;
   removedReason?: string;
   isLocked: boolean;
+  isSpoiler?: boolean;
   type: "text" | "image" | "link";
   userVote?: "up" | "down" | null;
 }

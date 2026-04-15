@@ -192,7 +192,8 @@ export function AdminReports() {
   const handleResolveAndRemove = async (report: any) => {
     const type = report.type || report.targetType;
     if (type === "comment") {
-      await removeComment(report.targetId);
+      const targetComment = comments.find(c => c.id === report.targetId);
+      if (targetComment) await removeComment(report.targetId, targetComment.postId);
     } else if (type === "post") {
       await removePost(report.targetId, "Removed after report review");
     }

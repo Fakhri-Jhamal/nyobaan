@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 import axios from "axios";
 
 // Determine the base URL depending on environment
