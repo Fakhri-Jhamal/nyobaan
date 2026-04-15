@@ -119,7 +119,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       const res = await api.get('/reports');
       setReports(res.data.map(mapMongoToMock));
     } catch (e: any) { 
-      if (e.response?.status === 403) return; // Non-admin users silently ignore
+      if (e.response?.status === 403 || e.response?.status === 401) return; // Non-admin users silently ignore
       console.error(e); 
     }
   };
