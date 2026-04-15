@@ -27,4 +27,17 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    outDir: 'build', // Tells Vite to use "build" instead of "dist"
+    chunkSizeWarningLimit: 1500, // Increase warning limit threshold
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router'],
+          markdown: ['react-markdown', 'remark-gfm'],
+          lucide: ['lucide-react']
+        }
+      }
+    }
+  }
 })
