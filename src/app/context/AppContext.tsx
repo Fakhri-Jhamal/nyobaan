@@ -118,7 +118,10 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     try {
       const res = await api.get('/reports');
       setReports(res.data.map(mapMongoToMock));
-    } catch (e) { console.error(e); }
+    } catch (e: any) { 
+      if (e.response?.status === 403) return; // Non-admin users silently ignore
+      console.error(e); 
+    }
   };
 
   useEffect(() => {

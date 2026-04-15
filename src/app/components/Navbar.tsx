@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router";
 import {
   Search, Plus, ChevronDown, Menu, X,
@@ -32,11 +32,9 @@ export function Navbar() {
     }
   };
 
-  import("react").then(m => {
-    m.useEffect(() => {
-      fetchNotifs();
-    }, [isAuthenticated]);
-  });
+  useEffect(() => {
+    fetchNotifs();
+  }, [isAuthenticated]);
 
   const filteredCommunities = communities.filter((c: any) =>
     c.name.toLowerCase().includes(searchQuery.toLowerCase()) && searchQuery.length > 0
