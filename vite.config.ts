@@ -28,7 +28,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'build', // Tells Vite to use "build" instead of "dist"
+    outDir: 'dist', // Keep default dist output aligned with vercel.json
     chunkSizeWarningLimit: 1500, // Increase warning limit threshold
     rollupOptions: {
       output: {
