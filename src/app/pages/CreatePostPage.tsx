@@ -72,9 +72,9 @@ export function CreatePostPage() {
       </div>
 
       <div className="flex gap-5">
-        {/* Main form */}
+        {/* didieu */}
         <div className="flex-1 min-w-0">
-          {/* Community Selector */}
+          {/* milih komunitu */}
           <div className="bg-white border border-gray-200 rounded-lg p-4 mb-4 relative">
             <button
               onClick={() => setShowCommunityDropdown(!showCommunityDropdown)}
@@ -136,7 +136,7 @@ export function CreatePostPage() {
             )}
           </div>
 
-          {/* Post Type Tabs */}
+          {/* Post */}
           <div className="bg-white border border-gray-200 rounded-lg overflow-hidden mb-4">
             <div className="flex border-b border-gray-200">
               {POST_TYPES.map(({ id, label, icon: Icon }) => (
@@ -156,7 +156,7 @@ export function CreatePostPage() {
             </div>
 
             <div className="p-4">
-              {/* Title */}
+              {/* judul bebad*/}
               <div className="mb-3 relative">
                 <textarea
                   value={title}
@@ -170,7 +170,7 @@ export function CreatePostPage() {
                 </span>
               </div>
 
-              {/* Flair */}
+              {/* penjaldan kecil  */}
               <div className="mb-3">
                 <input
                   type="text"
@@ -181,7 +181,7 @@ export function CreatePostPage() {
                 />
               </div>
 
-              {/* Content */}
+              {/* didieu ker ngomongka */}
               {postType === "text" && (
                 <textarea
                   value={content}
@@ -234,7 +234,7 @@ export function CreatePostPage() {
                 </div>
               )}
 
-              {/* Options */}
+              {/* pilih sini */}
               <div className="flex gap-2 mt-3">
                 <button
                   onClick={() => setIsSpoiler(!isSpoiler)}
@@ -250,7 +250,7 @@ export function CreatePostPage() {
             </div>
           </div>
 
-          {/* Actions */}
+          {/* jadina */}
           <div className="flex justify-end gap-3">
             <Link
               to="/"

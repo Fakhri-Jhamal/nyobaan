@@ -30,14 +30,12 @@ app.use('/api/users', userRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/api/notifications', notificationRoutes);
 
-// Serve static directory for uploads
 app.use('/uploads', express.static(path.join(__dirname, '../public/uploads')));
 
 app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
 });
 
-// Export for Vercel Serverless
 export default app;
 
 // Database Connection
@@ -45,7 +43,8 @@ mongoose
   .connect(process.env.MONGODB_URI as string)
   .then(() => {
     console.log('Connected to MongoDB');
-    if (process.env.NODE_ENV !== 'production') {
+    // Standalone server config (For Railway/Localhost)
+    if (!process.env.VERCEL) {
       app.listen(PORT, () => {
         console.log(`Server is running on port ${PORT}`);
       });

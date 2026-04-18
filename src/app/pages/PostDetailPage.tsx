@@ -14,7 +14,7 @@ export function PostDetailPage() {
   const [commentContent, setCommentContent] = useState("");
   const [sortComments, setSortComments] = useState("top");
 
-  // Fetch fresh comments when page loads
+  // fresh comments kalau di refresh
   useEffect(() => {
     if (postId) {
       fetchCommentsForPost(postId);
@@ -58,7 +58,7 @@ export function PostDetailPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 pt-20 pb-8">
-      {/* Back button */}
+      {/* balik button */}
       <Link
         to={`/r/${communityName}`}
         className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-800 mb-4 transition-colors"
@@ -68,7 +68,7 @@ export function PostDetailPage() {
       </Link>
 
       <div className="flex gap-6">
-        {/* Main content */}
+        {/*  content didieu */}
         <div className="flex-1 min-w-0">
           {/* Post */}
           <PostCard
@@ -79,7 +79,7 @@ export function PostDetailPage() {
             isDetail={true}
           />
 
-          {/* Comment Box */}
+          {/* Comment */}
           <div className="bg-white border border-gray-200 rounded-lg p-4 mt-4">
             {post.isLocked ? (
               <div className="flex items-center gap-2 py-3 text-sm text-yellow-700 bg-yellow-50 border border-yellow-200 rounded-lg px-4">
@@ -116,7 +116,7 @@ export function PostDetailPage() {
             )}
           </div>
 
-          {/* Comments Section */}
+          {/* Section */}
           <div className="bg-white border border-gray-200 rounded-lg p-4 mt-4">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
@@ -154,7 +154,7 @@ export function PostDetailPage() {
           </div>
         </div>
 
-        {/* Right sidebar */}
+        {/*  sidebar di kanan */}
         <div className="hidden lg:block w-64 shrink-0">
           <div className="bg-white border border-gray-200 rounded-lg overflow-hidden sticky top-20">
             <div className="bg-gradient-to-r from-orange-500 to-orange-400 px-4 py-3">

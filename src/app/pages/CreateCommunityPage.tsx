@@ -19,7 +19,7 @@ export function CreateCommunityPage() {
   const [errorMsg, setErrorMsg] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
 
-  // Validations
+  // Validsai
   const nameTrimmed = name.trim();
   const descTrimmed = description.trim();
   const nameError =
@@ -39,7 +39,7 @@ export function CreateCommunityPage() {
     descTrimmed.length >= 10 &&
     !isLoading;
 
-  // If not logged in, show lock screen
+  // tidak login? langsung lock
   if (!isAuthenticated || !user) {
     return (
       <div className="max-w-lg mx-auto px-4 pt-32 text-center">
@@ -66,7 +66,7 @@ export function CreateCommunityPage() {
     setSuccessMsg("");
     setIsLoading(true);
 
-    // Name is already sanitized in the input handler, but double-sanitize here
+    // handler busuk
     const sanitizedName = nameTrimmed.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
 
     try {
@@ -111,7 +111,7 @@ export function CreateCommunityPage() {
               </div>
             )}
 
-            {/* Success Banner */}
+            {/*  Banner nu benner */}
             {successMsg && (
               <div className="flex items-start gap-3 mb-4 p-3 bg-green-50 border border-green-200 rounded-lg text-sm text-green-700">
                 <CheckCircle className="w-4 h-4 shrink-0 mt-0.5" />
@@ -119,7 +119,7 @@ export function CreateCommunityPage() {
               </div>
             )}
 
-            {/* Name Field */}
+            {/* buat nama */}
             <div className="mb-4">
               <label className="block text-sm font-semibold text-gray-800 mb-1">
                 Community Name <span className="text-red-500">*</span>
@@ -164,7 +164,7 @@ export function CreateCommunityPage() {
               )}
             </div>
 
-            {/* Description Field */}
+            {/* deskripso */}
             <div className="mb-4">
               <label className="block text-sm font-semibold text-gray-800 mb-1">
                 Description <span className="text-red-500">*</span>
@@ -203,7 +203,7 @@ export function CreateCommunityPage() {
               </div>
             </div>
 
-            {/* Icon (Emoji) */}
+            {/* Icon */}
             <div className="mb-4">
               <label className="block text-sm font-semibold text-gray-800 mb-1">
                 Community Icon
@@ -240,7 +240,7 @@ export function CreateCommunityPage() {
               </div>
             </div>
 
-            {/* Banner URL */}
+            {/* URL buat banner */}
             <div className="mb-6">
               <label className="block text-sm font-semibold text-gray-800 mb-1">
                 Banner Image URL{" "}
@@ -268,7 +268,7 @@ export function CreateCommunityPage() {
               )}
             </div>
 
-            {/* Actions */}
+            {/* proces */}
             <div className="flex justify-end gap-3">
               <Link
                 to="/"
@@ -292,7 +292,7 @@ export function CreateCommunityPage() {
               </button>
             </div>
 
-            {/* Hint when button disabled */}
+            {/* ketika di cancel */}
             {!canSubmit && !isLoading && (
               <p className="text-xs text-gray-400 text-right mt-2">
                 {nameTrimmed.length < 3
@@ -305,7 +305,7 @@ export function CreateCommunityPage() {
           </div>
         </div>
 
-        {/* Tips Sidebar */}
+        {/* sidebar kalau salah */}
         <div className="hidden md:block w-64 shrink-0">
           <div className="bg-white border border-gray-200 rounded-lg overflow-hidden sticky top-20">
             <div className="bg-gradient-to-r from-orange-500 to-orange-400 px-4 py-3">

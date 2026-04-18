@@ -23,7 +23,7 @@ const BANNER_PRESETS = [
   "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&q=80",
   "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80",
   "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&q=80",
-  "https://images.unsplash.com/photo-1540553016722-983e048a0f13?w=1200&q=80",
+  "https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=1200&q=80",
   "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=1200&q=80",
 ];
 
@@ -78,9 +78,7 @@ export function SettingsPage() {
       const res = await api.post("/upload/image", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
-      // The backend returns a public URL like /uploads/filename.jpg
-      // So we need to prefix it with the API absolute URL or if API URL has /api we remove it
-      // Actually res.data.url is just the relative path from the server origin
+      // backend balik ke public URL seperti /uploads/filename.jpg
       const baseURL = api.defaults.baseURL?.replace('/api', '') || "http://localhost:5000";
       const fullUrl = `${baseURL}${res.data.url}`;
 
@@ -119,7 +117,7 @@ export function SettingsPage() {
       </div>
 
       <div className="flex gap-6">
-        {/* Left: Live preview */}
+        {/* di kiri: Live preview */}
         <div className="hidden lg:block w-64 shrink-0">
           <div className="sticky top-20">
             <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 px-1">Preview</p>
@@ -161,7 +159,7 @@ export function SettingsPage() {
           </div>
         </div>
 
-        {/* Right: Settings form */}
+        {/* kanan: Settings form */}
         <div className="flex-1 min-w-0">
           {/* Tabs */}
           <div className="flex gap-1 mb-4 bg-gray-100 rounded-xl p-1">
@@ -186,7 +184,7 @@ export function SettingsPage() {
           </div>
 
           <div className="bg-white border border-gray-200 rounded-xl p-6">
-            {/* ── Profile Info Tab ── */}
+            {/* ── Profile Infokan  ── */}
             {activeTab === "profile" && (
               <div className="space-y-5">
                 <div>
@@ -227,7 +225,7 @@ export function SettingsPage() {
               </div>
             )}
 
-            {/* ── Avatar Tab ── */}
+            {/* ── pilihan Avatar ── */}
             {activeTab === "avatar" && (
               <div className="space-y-5">
                 <div>
@@ -310,7 +308,7 @@ export function SettingsPage() {
               </div>
             )}
 
-            {/* ── Banner Tab ── */}
+            {/* ── milih Banner ── */}
             {activeTab === "banner" && (
               <div className="space-y-5">
                 <div>
@@ -350,7 +348,7 @@ export function SettingsPage() {
                   </div>
                 </div>
 
-                {/* Live banner preview */}
+                {/* Live banner */}
                 <div>
                   <p className="text-xs text-gray-500 mb-1">Banner Preview:</p>
                   <div
@@ -363,7 +361,7 @@ export function SettingsPage() {
                   />
                 </div>
 
-                {/* Presets */}
+                {/* Preset tapi bukan JJ hehe */}
                 <div>
                   <p className="text-sm font-semibold text-gray-800 mb-2">Preset Banners</p>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -404,7 +402,7 @@ export function SettingsPage() {
               </div>
             )}
 
-            {/* Messages */}
+            {/* pesan disini */}
             {successMsg && (
               <div className="mt-4 flex items-center gap-2 px-3 py-2 bg-green-50 border border-green-200 rounded-lg text-sm text-green-700">
                 <CheckCircle className="w-4 h-4 shrink-0" />
@@ -418,7 +416,7 @@ export function SettingsPage() {
               </div>
             )}
 
-            {/* Save button */}
+            {/* Save 100% */}
             <div className="mt-6 flex items-center justify-between pt-4 border-t border-gray-100">
               {!hasChanges && (
                 <p className="text-xs text-gray-400">Make a change to enable saving</p>

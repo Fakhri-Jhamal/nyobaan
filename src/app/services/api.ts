@@ -12,7 +12,7 @@ const api = axios.create({
   },
 });
 
-// Request interceptor to add the JWT token to headers if it exists
+// Request nambah JWT token ke headers jika ada
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("forum_token");

@@ -57,12 +57,12 @@ export function HomePage() {
   return (
     <div className="max-w-7xl mx-auto px-4 pt-20 pb-8">
       <div className="flex gap-4">
-        {/* Left History Sidebar */}
+        {/* History Sidebar */}
         <HistorySidebar />
 
-        {/* Main Feed */}
+        {/* utama kudu didieu */}
         <div className="flex-1 min-w-0">
-          {/* Sort bar */}
+          {/* Sort */}
           <div className="bg-white border border-gray-200 rounded-lg p-2 mb-4 flex gap-1">
             {SORT_OPTIONS.map(({ id, label, icon: Icon }) => (
               <button
@@ -104,10 +104,8 @@ export function HomePage() {
               </div>
             ) : (
               displayPosts.map((post: any) => {
-                // Resolve author: prefer from users state (has full data), fallback to populated object
                 const author = users.find(u => u.id === post.authorId) 
                   || (post.author && typeof post.author === 'object' ? { ...post.author, id: post.author._id || post.author.id } : undefined);
-                // Resolve community: prefer from communities state
                 const community = communities.find(c => c.id === post.community)
                   || (post.communityData && typeof post.communityData === 'object' ? { ...post.communityData, id: post.communityData._id } : undefined);
                 return (

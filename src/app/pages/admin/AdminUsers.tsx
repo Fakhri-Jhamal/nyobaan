@@ -34,7 +34,7 @@ export function AdminUsers() {
         <p className="text-sm text-gray-500 mt-1">Manage user accounts, roles, and permissions</p>
       </div>
 
-      {/* Summary Cards */}
+      {/* cards */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
         {[
           { label: "Total Users", value: users.length, color: "text-blue-600", bg: "bg-blue-50" },
@@ -49,7 +49,6 @@ export function AdminUsers() {
         ))}
       </div>
 
-      {/* Filters */}
       <div className="bg-white border border-gray-200 rounded-xl p-4 mb-4 flex flex-wrap gap-3">
         <div className="relative flex-1 min-w-48">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -181,7 +180,7 @@ export function AdminUsers() {
         </div>
       </div>
 
-      {/* Ban Confirmation Modal */}
+      {/* buat ban */}
       {confirmBan && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-xl p-6 w-full max-w-sm shadow-xl">

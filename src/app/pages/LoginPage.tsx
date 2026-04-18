@@ -46,7 +46,7 @@ export function LoginPage() {
           <p className="text-gray-500 mt-2 text-sm">Welcome back! Sign in to continue.</p>
         </div>
 
-        {/* Card */}
+        {/* cars didieu */}
         <div className="bg-white rounded-2xl border border-gray-200 shadow-xl shadow-gray-100 p-8">
           <h1 className="text-xl font-bold text-gray-900 mb-6">Sign In</h1>
 

@@ -7,8 +7,6 @@ import Post from './models/Post';
 import Comment from './models/Comment';
 import Report from './models/Report';
 
-// Assume you copy the data arrays from mockData.ts here or import them if you configure ts-node to resolve it
-// For this seed to run independently, we'll redefine the mock arrays here to keep it self-contained
 // @ts-ignore
 import { users, communities, posts, comments, reports } from '../../src/app/data/mockData';
 

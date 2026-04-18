@@ -18,8 +18,16 @@ const NAV_ITEMS = [
 export function AdminLayout() {
   const location = useLocation();
   const { reports } = useApp();
-  const { user: currentUser, isAuthenticated } = useAuth();
+  const { user: currentUser, isAuthenticated, isLoading } = useAuth();
   const pendingReports = reports.filter((r) => r.status === "pending").length;
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen pt-32 flex justify-center">
+        <div className="w-12 h-12 border-4 border-orange-500 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
 
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;

@@ -39,7 +39,7 @@ export function UserProfilePage() {
 
       <div className="max-w-5xl mx-auto px-4 py-6">
         <div className="flex gap-6">
-          {/* Left sidebar - Profile */}
+          {/* kiri  sidebar - Profile */}
           <div className="w-72 shrink-0">
             <div className="bg-white border border-gray-200 rounded-lg p-6 -mt-16">
               <div className="w-20 h-20 rounded-full border-4 border-white shadow-lg overflow-hidden bg-gray-100 mx-auto mb-3">
@@ -95,7 +95,7 @@ export function UserProfilePage() {
             </div>
           </div>
 
-          {/* Main content - Posts */}
+          {/* Main content  di Posts */}
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-4">
               <h2 className="text-gray-800 text-base">Posts by u/{user.username}</h2>

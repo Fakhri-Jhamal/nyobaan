@@ -45,7 +45,7 @@ export function CommunityPage() {
   const isAdmin = currentUser?.role === 'admin';
   const isJoined = currentUser?.joinedCommunities?.includes(communityId) || isAdmin || false;
 
-  // Check if current user is a moderator of this community
+  // di cek kalau mod
   const isModerator = currentUser && community.moderators.some(
     (modId: any) => {
       const modStr = typeof modId === 'object' ? (modId._id || modId.id || modId.username) : modId;
@@ -75,7 +75,7 @@ export function CommunityPage() {
   const unpinnedPosts = sortedPosts.filter((p) => !p.isPinned);
   const displayPosts = [...pinnedPosts, ...unpinnedPosts];
 
-  // Resolve moderator objects — they may be populated or plain IDs
+  // cek objek pake id
   const moderators = community.moderators.map((modId: any) => {
     if (typeof modId === 'object' && modId.username) return modId;
     return users.find((u) => u.id === modId || u.id === modId?._id);
@@ -135,7 +135,7 @@ export function CommunityPage() {
         )}
       </div>
 
-      {/* Community Header */}
+      {/* hulu na */}
       <div className="bg-white border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-end gap-4 py-4 -mt-4">
@@ -181,7 +181,7 @@ export function CommunityPage() {
         </div>
       </div>
 
-      {/* Mod Panel */}
+      {/* Mod tampilan */}
       {showModPanel && canModerate && (
         <div className="bg-green-50 border-b border-green-200">
           <div className="max-w-7xl mx-auto px-4 py-4">
@@ -189,7 +189,7 @@ export function CommunityPage() {
               <Shield className="w-4 h-4" /> Moderator Panel — r/{community.name}
             </h2>
             <div className="flex flex-wrap gap-4">
-              {/* Add Moderator */}
+              {/* nambah oderator */}
               <div className="bg-white rounded-lg p-4 border border-green-200 flex-1 min-w-64">
                 <h3 className="text-sm font-medium text-gray-800 mb-2 flex items-center gap-1">
                   <UserPlus className="w-4 h-4 text-green-500" /> Add Moderator
@@ -215,7 +215,7 @@ export function CommunityPage() {
                 )}
               </div>
 
-              {/* Current Moderators */}
+              {/* moderator yang ada */}
               <div className="bg-white rounded-lg p-4 border border-green-200 flex-1 min-w-64">
                 <h3 className="text-sm font-medium text-gray-800 mb-2 flex items-center gap-1">
                   <Shield className="w-4 h-4 text-green-500" /> Current Moderators
@@ -244,7 +244,7 @@ export function CommunityPage() {
                 </div>
               </div>
 
-              {/* Edit Community Rules */}
+              {/* kjer ngedit*/}
               <div className="bg-white rounded-lg p-4 border border-green-200 flex-[2] min-w-80">
                 <h3 className="text-sm font-medium text-gray-800 mb-2 flex items-center gap-1">
                   <Edit3 className="w-4 h-4 text-green-500" /> Manage Rules
@@ -288,12 +288,12 @@ export function CommunityPage() {
         </div>
       )}
 
-      {/* Content */}
+      {/* conten */}
       <div className="max-w-7xl mx-auto px-4 py-6">
         <div className="flex gap-6">
-          {/* Posts */}
+          {/* bagian post */}
           <div className="flex-1 min-w-0">
-            {/* Sort bar */}
+            {/* bar na */}
             <div className="bg-white border border-gray-200 rounded-lg p-2 mb-4 flex gap-1">
               {SORT_OPTIONS.map(({ id, label, icon: Icon }) => (
                 <button
@@ -356,7 +356,7 @@ export function CommunityPage() {
 
           {/* Sidebar */}
           <div className="hidden lg:flex flex-col gap-4 w-72 shrink-0">
-            {/* About */}
+            {/* tentang */}
             <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
               <div className="bg-gradient-to-r from-orange-500 to-orange-400 px-4 py-3">
                 <h3 className="text-white text-sm">About r/{community.name}</h3>
@@ -400,7 +400,7 @@ export function CommunityPage() {
               </div>
             </div>
 
-            {/* Rules */}
+            {/* didieukuudna aturan */}
             {community.rules.length > 0 && (
               <div className="bg-white border border-gray-200 rounded-lg p-4">
                 <h3 className="text-gray-800 text-sm mb-3">Community Rules</h3>
@@ -416,7 +416,7 @@ export function CommunityPage() {
               </div>
             )}
 
-            {/* Moderators */}
+            {/* Mod */}
             <div className="bg-white border border-gray-200 rounded-lg p-4">
               <div className="flex items-center gap-2 mb-3">
                 <Shield className="w-4 h-4 text-gray-500" />
