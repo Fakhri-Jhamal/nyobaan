@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router";
+import api from "../services/api";
 import {
   Search, Plus, ChevronDown, Menu, X,
   Shield, Home, Bookmark, User as UserIcon,
@@ -19,15 +20,13 @@ export function Navbar() {
   const [notifications, setNotifications] = useState<any[]>([]);
   const [showNotifs, setShowNotifs] = useState(false);
 
-  // Fetch notifications
   const fetchNotifs = async () => {
     if (isAuthenticated) {
       try {
-        const { default: api } = await import("../services/api");
         const res = await api.get('/notifications');
         setNotifications(res.data);
       } catch (e) {
-        console.error("Failed to load notifications", e);
+        // Abaikan error notifikasi
       }
     }
   };
@@ -138,14 +137,13 @@ export function Navbar() {
                   )}
                 </button>
                 {showNotifs && (
-                  <div className="absolute right-0 top-full mt-2 w-80 bg-white border border-gray-200 rounded-lg shadow-xl overflow-hidden z-50">
+                  <div className="absolute right-0 top-full mt-2 w-80 max-w-[calc(100vw-2rem)] bg-white border border-gray-200 rounded-lg shadow-xl overflow-hidden z-50">
                     <div className="px-4 py-3 border-b border-gray-100 flex justify-between items-center">
                       <span className="text-sm font-semibold text-gray-800">Notifications</span>
                       <button 
                         className="text-xs text-blue-500 hover:underline"
                         onClick={async () => {
                           try {
-                            const { default: api } = await import("../services/api");
                             await api.put('/notifications/read-all');
                             fetchNotifs();
                           } catch(e) {}
@@ -165,7 +163,6 @@ export function Navbar() {
                               setShowNotifs(false);
                               if (!n.isRead) {
                                 try {
-                                  const { default: api } = await import("../services/api");
                                   await api.put(`/notifications/${n._id}/read`);
                                   fetchNotifs();
                                 } catch(e){}
@@ -257,6 +254,13 @@ export function Navbar() {
             <>
               <Link
                 to="/login"
+                className="flex sm:hidden items-center justify-center w-8 h-8 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+                title="Log In"
+              >
+                <LogIn className="w-4 h-4" />
+              </Link>
+              <Link
+                to="/login"
                 className="hidden sm:flex items-center gap-1.5 px-4 py-1.5 border border-gray-300 rounded-full text-sm text-gray-700 hover:bg-gray-50 transition-colors"
               >
                 <LogIn className="w-4 h-4" />
@@ -264,10 +268,10 @@ export function Navbar() {
               </Link>
               <Link
                 to="/register"
-                className="hidden sm:flex items-center gap-1.5 px-4 py-1.5 bg-orange-500 rounded-full text-sm text-white hover:bg-orange-600 transition-colors font-medium"
+                className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 bg-orange-500 rounded-full text-sm text-white hover:bg-orange-600 transition-colors font-medium"
               >
                 <UserPlus className="w-4 h-4" />
-                <span>Sign Up</span>
+                <span className="hidden sm:inline">Sign Up</span>
               </Link>
             </>
           )}

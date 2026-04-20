@@ -46,7 +46,7 @@ export function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-50 flex items-center justify-center px-4 pt-14 pb-8">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-50 flex items-center justify-center px-4 pt-16 pb-8">
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
@@ -62,7 +62,7 @@ export function RegisterPage() {
         </div>
 
         {/* Card */}
-        <div className="bg-white rounded-2xl border border-gray-200 shadow-xl shadow-gray-100 p-8">
+        <div className="bg-white rounded-2xl border border-gray-200 shadow-xl shadow-gray-100 p-6 sm:p-8">
           <h1 className="text-xl font-bold text-gray-900 mb-6">Create Account</h1>
 
           {error && (
