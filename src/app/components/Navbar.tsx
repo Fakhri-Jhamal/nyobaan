@@ -276,13 +276,15 @@ export function Navbar() {
             </>
           )}
 
-          {/* Mobile menu button */}
-          <button
-            className="sm:hidden w-9 h-9 flex items-center justify-center rounded-full hover:bg-gray-100"
-            onClick={() => setShowMobileMenu(!showMobileMenu)}
-          >
-            {showMobileMenu ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          {/* Tombol hamburger - hanya muncul di mobile saat sudah login */}
+          {isAuthenticated && (
+            <button
+              className="sm:hidden w-9 h-9 flex items-center justify-center rounded-full hover:bg-gray-100"
+              onClick={() => setShowMobileMenu(!showMobileMenu)}
+            >
+              {showMobileMenu ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          )}
         </div>
       </div>
 
