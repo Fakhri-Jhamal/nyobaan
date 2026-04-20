@@ -324,11 +324,11 @@ export function Navbar() {
         </div>
       )}
 
-      {/* Overlay to close menus */}
-      {(showUserMenu || showMobileMenu) && (
+      {/* Overlay hanya untuk menutup dropdown user/notif, BUKAN mobile menu */}
+      {(showUserMenu || showNotifs) && (
         <div
           className="fixed inset-0 z-40"
-          onClick={() => { setShowUserMenu(false); setShowMobileMenu(false); }}
+          onClick={() => { setShowUserMenu(false); setShowNotifs(false); }}
         />
       )}
     </nav>
